@@ -40,4 +40,9 @@ public class CalculatorTest {
 	public void shouldReturnSumWithNotValidDelemiterFinal() {
 		assertEquals(10, Calculator.add("///sdfggfasdf:asdf1, 2\n3sdfsffgret4"));
 	}
+
+	@Test
+	public void shouldReturnSumWithBigNumber() {
+		assertEquals(21, Calculator.add("1, 20"));
+	}
 }
