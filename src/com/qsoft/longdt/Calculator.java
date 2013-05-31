@@ -41,16 +41,21 @@ public class Calculator {
 		List<Integer> intList = new ArrayList<Integer>();
 		char[] charArray = input.toCharArray();
 		for (int j = 0; j < charArray.length; j++) {
-			for (int num : ascii)
-				if ((int) charArray[j] == num) {
+			char tempChar = charArray[j];
+			for (int k = 0; k < ascii.length; k++) {
+
+				int tempNumber = (int) tempChar;
+				if (tempNumber == ascii[k]) {
 					i++;
+					k = ascii.length - 2;
 				} else {
 					if (i > 0) {
-						KeyValueObject obj = new KeyValueObject(j, i);
+						KeyValueObject obj = new KeyValueObject(j - i + 1, i);
 						tempList.add(obj);
 					}
 					i = 0;
 				}
+			}
 		}
 		for (int k = 0; k < tempList.size(); k++) {
 			KeyValueObject obj = tempList.get(k);
